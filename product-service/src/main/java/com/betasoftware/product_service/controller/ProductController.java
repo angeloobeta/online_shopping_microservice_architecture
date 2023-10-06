@@ -9,18 +9,34 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/product")
+@RequestMapping("/api/v1")
 public class ProductController {
 
     private  final ProductService productService;
-    @PostMapping("/createProduct")
+    @PostMapping("/products")
     @ResponseStatus(HttpStatus.CREATED)
     public void createProduct(@RequestBody ProductRequestDto productRequestDto){
         productService.createProduct(productRequestDto);
     }
 
-    @GetMapping("/allProduct")
+    @GetMapping("/products")
     public ResponseEntity<?> getAllProduct(){
     return ResponseEntity.ok(productService.getAllProduct());
     }
+
+    @GetMapping("/products/{id}")
+    public ResponseEntity<?> getProductById(@PathVariable String id){
+        return ResponseEntity.ok(null);
+    }
+
+    @DeleteMapping("/products/{id}")
+    public ResponseEntity<?> deleteProductById(@PathVariable String id){
+        return ResponseEntity.ok(null);
+    }
+
+    @PutMapping("/products/{id}")
+    public ResponseEntity<?> updateProductById(@PathVariable String id){
+        return ResponseEntity.ok(null);
+    }
+
 }
