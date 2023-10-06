@@ -1,0 +1,19 @@
+package com.betasoftware.orderservice.data.entities;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.math.BigDecimal;
+
+@Entity
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Builder
+@Table(name = "order_line_items")
+public class OrderLineItems {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String skuCode;
+    private BigDecimal price;
+    private Integer quantity;
+}
