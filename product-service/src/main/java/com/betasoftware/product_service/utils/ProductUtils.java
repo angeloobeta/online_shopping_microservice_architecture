@@ -4,8 +4,9 @@ import com.betasoftware.product_service.data.dto.response.ProductResponseDto;
 import com.betasoftware.product_service.data.entities.Product;
 import org.springframework.stereotype.Component;
 
-@Component public class ProductUtils {
-    public ProductResponseDto mapProductToDto(Product product) {
+@Component
+public class ProductUtils {
+    public ProductResponseDto mapProductToResponseDto(Product product) {
         return ProductResponseDto.builder()
                 .productDescription(product.getProductDescription())
                 .productId(product.getProductId())

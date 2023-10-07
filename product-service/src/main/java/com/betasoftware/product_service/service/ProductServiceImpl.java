@@ -35,7 +35,7 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public ApiResponseDto<List<ProductResponseDto>> getAllProduct() {
         List<ProductResponseDto> productList = productRepository.findAll().stream()
-                .map(productUtils::mapProductToDto).toList();
+                .map(productUtils::mapProductToResponseDto).toList();
         return new ApiResponseDto<>("All Product successfully fetched", 200, productList);
     }
 }

@@ -20,21 +20,25 @@ public class ProductController {
     }
 
     @GetMapping("/products")
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> getAllProduct(){
     return ResponseEntity.ok(productService.getAllProduct());
     }
 
     @GetMapping("/products/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> getProductById(@PathVariable String id){
         return ResponseEntity.ok(null);
     }
 
     @DeleteMapping("/products/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> deleteProductById(@PathVariable String id){
         return ResponseEntity.ok(null);
     }
 
     @PutMapping("/products/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> updateProductById(@PathVariable String id){
         return ResponseEntity.ok(null);
     }
