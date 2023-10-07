@@ -1,13 +1,10 @@
 package com.betasoftware.orderservice;
 
-import com.betasoftware.orderservice.data.dtos.request.OrderLineItemsRequestDto;
 import com.betasoftware.orderservice.data.dtos.request.OrderRequestDto;
-import com.betasoftware.orderservice.data.entities.Order;
-import com.betasoftware.orderservice.data.entities.OrderLineItems;
 import com.betasoftware.orderservice.repositories.OrderRepository;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.utils.OrderUtilsTest;
+import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,18 +19,16 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import java.math.BigDecimal;
-import java.util.List;
-
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @Testcontainers
 @AutoConfigureMockMvc
+@RequiredArgsConstructor
 class OrderServiceApplicationTests {
 
     @Container
-    static PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer("9.6.12");
+    static PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer();
 
     @Autowired
     private MockMvc mockMvc;
@@ -44,9 +39,7 @@ class OrderServiceApplicationTests {
     @Autowired
     private OrderRepository orderRepository;
 
-    private OrderUtilsTest orderUtilsTest;
-
-    OrderServiceApplicationTests(){}
+    private final OrderUtilsTest orderUtilsTest;
 
     @DynamicPropertySource
     static void setProperties(DynamicPropertyRegistry dynamicPropertyRegistry){
