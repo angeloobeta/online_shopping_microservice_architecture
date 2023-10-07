@@ -2,6 +2,7 @@ package com.betasoftware.product_service;
 
 import com.betasoftware.product_service.data.dto.request.ProductRequestDto;
 import com.betasoftware.product_service.data.repositories.ProductRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.testcontainers.containers.MongoDBContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.math.BigDecimal;
 
@@ -32,7 +32,7 @@ class ProductServiceApplicationTests {
     private MockMvc mockMvc;
     @Autowired
     // converts POJO objects to Json and vice versa
-    private   ObjectMapper objectMapper;
+    private ObjectMapper objectMapper;
 
     @Autowired
     private  ProductRepository productRepository;

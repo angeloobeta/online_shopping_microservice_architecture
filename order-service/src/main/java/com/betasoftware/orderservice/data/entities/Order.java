@@ -8,7 +8,8 @@ import java.util.List;
 
 @Entity
 @Setter @Getter @Table(name = "orders")
-@AllArgsConstructor @NoArgsConstructor @Builder
+@AllArgsConstructor @NoArgsConstructor
+@Builder
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
